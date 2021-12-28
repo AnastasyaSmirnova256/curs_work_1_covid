@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-covid-events
+spec:
+  selector:
+    matchLabels:
+      app: covid-events
+  template:
+    metadata:
+      labels:
+        app: covid-events
+    spec:
+      containers:
+      - name: covid-events
+        image: smirnova8asya/covid:covid-events
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 8000

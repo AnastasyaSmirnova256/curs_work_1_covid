@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-covid-events
+spec:
+  selector:
+    app: covid-events
+  ports:
+  - port: 80 #external(exposed)
+    targetPort: 8000 #internal
+  type: NodePort
